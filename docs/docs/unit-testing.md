@@ -4,8 +4,8 @@ title: Unit testing
 
 Unit testing is a great way to protect against errors in your code before you
 deploy it. While Gatsby does not include support for unit testing out of the
-box, it only takes a few steps to get up and running. However there are a few
-features of the Gatsby build process that mean the standard Jest setup doesn't
+box, it only takes a few steps to get up and running. However, there are a few
+features of the Gatsby build process that means the standard Jest setup doesn't
 quite work. This guide shows you how to set it up.
 
 ## Setting up your environment
@@ -16,9 +16,9 @@ testing framework, it has lots of features that make it work particularly well
 with React.
 
 For this guide, you will be starting with `gatsby-starter-blog`, but the
-concepts should be the same or very similar for your site.
+concepts should be the same or very similar to your site.
 
-First you need to install Jest and some more required packages. You need to
+First, you need to install Jest and some more required packages. You need to
 install Babel 7 as it's required by Jest.
 
 ```sh
@@ -77,13 +77,13 @@ pattern telling Jest which files contain tests. The pattern above matches any
 extension `.test.js` or `.spec.js`. You are telling Jest to ignore any tests in
 the `node_modules` or `.cache` directories.
 
-The `moduleNameMapper` section works a bit like webpack rules, and tells Jest
+The `moduleNameMapper` section works a bit like web pack rules and tells Jest
 how to handle imports. You are mainly concerned here with mocking static file
 imports, which Jest can't handle. A mock is a dummy module that is used instead
 of the real module inside tests. It is good when you have something that you
 can't or don't want to test. You can mock anything, and here you are mocking
-assets rather than code. For stylesheets you need to use the package
-`identity-obj-proxy`. For all other assets you need to use a manual mock called
+assets rather than code. For stylesheets, you need to use the package
+`identity-obj-proxy`. For all other assets, you need to use a manual mock called
 `fileMock.js`. You need to create this yourself. The convention is to create a
 directory called `__mocks__` in the root directory for this. Note the pair of
 double underscores in the name.
@@ -92,9 +92,9 @@ double underscores in the name.
 module.exports = "test-file-stub"
 ```
 
-The next config setting is `transformIgnorePatterns`. This is very important,
+The next config setting is `transformIgnorePatterns`. This is very important
 and is different from what you'll find in other Jest guides. The reason that you
-need this is because Gastby includes un-transpiled ES6 code. By default Jest
+need this is because Gatsby includes un-transpired ES6 code. By default, Jest
 doesn't try to transform code inside `node_modules`, so you will get an error
 like this:
 
@@ -112,7 +112,7 @@ exclude the `gatsby` module.
 The `globals` section sets `__PATH_PREFIX__`, which is usually set by Gatsby,
 and which some components need.
 
-You need to set `testURL` to a valid URL, because some DOM APIs such as
+You need to set `testURL` to a valid URL because of some DOM APIs such as
 `localStorage` are unhappy with the default (`about:blank`).
 
 > Note: if you're using Jest 23.5.0 or later, `testURL` will default to `http://localhost` so you can skip this setting.
@@ -127,7 +127,7 @@ global.___loader = {
 }
 ```
 
-Finally it's a good idea to mock the `gatsby` module itself. This may not be
+Finally, it's a good idea to mock the `gatsby` module itself. This may not be
 needed at first, but will make things a lot easier if you want to test
 components that use `Link` or GraphQL.
 
@@ -162,7 +162,7 @@ describe("Bio", () =>
 ```
 
 This is a very simple snapshot test, which uses `react-test-renderer` to render
-the component, and then generates a snapshot of it on first run. It then
+the component, and then generates a snapshot of it on the first run. It then
 compares future snapshots against this, which means you can quickly check for
 regressions. Visit [the Jest docs](https://jestjs.io/docs/en/getting-started) to
 learn more about other tests that you can write.
@@ -180,7 +180,7 @@ script for `test`, which just outputs an error message. Change this to simply
 ```
 
 This means you can now run tests by typing `npm run test`. If you want you could
-also add a script that runs `jest --watchAll` to watch files and run tests when
+also, add a script that runs `jest --watchAll` to watch files and run tests when
 they are changed.
 
 Now, run `npm run test` and you should immediately get an error like this:
@@ -209,7 +209,7 @@ to your tests. If you take a look at it, you will see that it is a JSON
 representation of the `<Bio />` component. You should check your snapshot files
 into a source control system (for example, a GitHub repo) so that so that any changes are tracked in history.
 This is particularly important to remember if you are using a continuous
-integration system such as Travis to run tests, as these will fail if no
+integration system such as Travis to run tests, as these, will fail if no
 snapshot is present.
 
 If you make changes that mean you need to update the snapshot, you can do this
@@ -218,7 +218,7 @@ by running `npm run test -- -u`.
 ## Using TypeScript
 
 If you are using TypeScript, you need to make a couple of small changes to your
-config. First install `ts-jest`:
+config. First, install `ts-jest`:
 
 ```sh
 npm install --save-dev ts-jest
@@ -264,11 +264,11 @@ Then edit the Jest config in your `package.json` to match this:
 When you test components they are not in a `Router`, meaning they don't have
 access to some context and props that they may be expecting. The most common of
 these is the `Link` component. In the example above we mock the `Link` component
-as a string, which is the simplest solution and works for most uses. However
+as a string, which is the simplest solution and works for most uses. However,
 sometimes you might want to test with the real `Link` component. As of v2,
 Gatsby uses `@reach/router` for navigation, which is good at handling test
 environments, and unlike React Router is happy to render `Link`s outside of a
-`Router` context. However there is a small issue related to the `gatsby` mock.
+`Router` context. However, there is a small issue related to the `gatsby` mock.
 We can use a small workaround to avoid an error.
 
 First, remove the `Link` mock from `gatsby`:

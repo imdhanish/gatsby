@@ -13,7 +13,7 @@ as you develop, ship, and maintain sites.
 
 This framework would have to be:
 
-- **universal**, work for all types of sites from simple brocurewares to complex
+- **universal**, work for all types of sites from simple brochurewares to complex
   web-apps.
 - **simple**, not requiring any setup to start using and with thoughtful APIs to
   extend the framework.
@@ -30,7 +30,7 @@ This framework would have to be:
   new features is easy and complexity is contained.
 - **internet scale**, launch your site to millions without crashing your site
   (or your wallet).
-- **secure**, doesn't put your your users' data at risk of hacking.
+- **secure**, doesn't put your users' data at risk of hacking.
 
 I believe that Gatsby fulfills these requirements. After several years of
 working on the project and seeing it used successfully by many people on a wide
@@ -87,7 +87,7 @@ site no? 😜
 ## Apps vs sites
 
 From nearly the beginning of the web, the idea of the web as an application
-platform has competed with the idea of the web as a series of "documents".
+the platform has competed with the idea of the web as a series of "documents".
 
 In recent years, the "app" paradigm has gained steam as dozens of JavaScript
 frameworks and other JavaScript tools have been released, exploring ideas and
@@ -109,7 +109,7 @@ paradigms feel almost easy with React.
 ## Time for a JavaScript web framework?
 
 The internet runs on Open Source CMSs—primarily Wordpress and Drupal. I spent
-most of college building Drupal websites and writing
+most of the college building Drupal websites and writing
 [open-source Drupal modules](https://www.bricolage.io/first-beta-release-drupal-native-mailinglist-module/).
 My first startup job was at [Pantheon](https://pantheon.io)—where I helped
 [design and build developer tools](https://www.bricolage.io/new-beginnings/) for
@@ -126,7 +126,7 @@ add more JavaScript into our sites_ resulting in an explosion of tool complexity
 resulting in, at times, poorly optimized sites that ship far too much JavaScript
 at the wrong times bogging down the site.
 
-But it doesn't need to be this way. We use web frameworks because they _embed
+But it doesn't need to be this way. We use web frameworks because of they _embed
 smart ideas about how to organize our code_ so we're guided towards building
 fast sites that are simple to build and maintain.
 
@@ -175,7 +175,7 @@ This is particularly helpful for teams of people collaborating on a site with
 pages with very different technical and business requirements. Different parts
 of the site can evolve independently of each other.
 
-One client I'm working with on Gatsby 1.0 (a stealth startup in San Francisco)
+One client, I'm working with on Gatsby 1.0 (a stealth startup in San Francisco)
 is using Gatsby to build both their marketing site _and_ SaaS app within the
 _same Gatsby codebase_.
 
@@ -188,7 +188,7 @@ The marketing portion of the site loads quickly with minimal JavaScript. When a
 potential customer goes to sign-up for the app, there's no _awkward jump from
 the marketing website to the web app_—just a simple page change which seamlessly
 loads in the needed JavaScript. The _team is sharing components and styles
-across the site_ without stepping on each others shoes as they rapidly iterate
+across the site_ without stepping on each other's shoes as they rapidly iterate
 on features.
 
 ### Plugin and Theme systems
@@ -210,7 +210,7 @@ plugins for internal projects and as open source projects published on NPM.
 
 Plugins can:
 
-- add support for webpack loaders such as Sass, Less
+- add support for web pack loaders such as Sass, Less
 - add drop-in support for lightweight React-compatible frameworks
   [Preact](https://preactjs.com/) and [Inferno](https://infernojs.org/)
 - add a sitemap or RSS feed
@@ -236,7 +236,7 @@ gatsby build --theme gatsby-super-cool-theme
 
 ### GraphQL data layer
 
-Currently data in Gatsby (like pretty much every static site generator) is
+Currently, data in Gatsby (like pretty much every static site generator) is
 processed then _pushed_ into templates to be rendered into HTML. This is a
 simple pattern and works great for many use cases. But when you start working on
 more complex sites, you really start to miss the flexibility of building a
@@ -258,9 +258,9 @@ Because we know at build-time what data is needed for every page, we can easily
 pre-fetch page data meaning even very complex, data-heavy pages load almost
 instantly.
 
-This pattern of _colocating_ your queries next to your views is copied from the
+This pattern of _colocating_ your queries next to your views are copied from the
 [Relay data framework from Facebook](https://facebook.github.io/relay/).
-Colocaton makes it easy to fully understand your views as everything necessary
+Colocation makes it easy to fully understand your views as everything necessary
 for that view is fully described there.
 
 A simple example of how this works in practice.
@@ -316,8 +316,8 @@ export const pageQuery = `
 `
 ```
 
-All data parsing and processing is plugin-driven. So in time, any imaginable
-data format and source and potential way of processing its data will be an npm
+All data parsing and processing are plugin-driven. So in time, any imaginable
+data format and source and the potential way of processing its data will be an npm
 install away.
 
 So far I've focused on building out the markdown ecosystem. So there are plugins
@@ -330,7 +330,7 @@ so they're mobile ready). I've also added parsers for
 [YAML](/packages/gatsby-parser-yaml/), [JSON](/packages/gatsby-parser-json/),
 and [images](/packages/gatsby-parser-sharp/).
 
-These plugins are easy to write (somewhat similar to webpack loaders) so I
+These plugins are easy to write (somewhat similar to web pack loaders) so I
 expect to see the list of plugins grow rapidly.
 
 The GraphQL layer can also connect to external data sources like databases,
@@ -341,11 +341,11 @@ APIs, or 3rd party services e.g. the various hosted CMSs such as
 ## Getting started with Gatsby 1.0
 
 Gatsby 1.0 is still in alpha so I don't recommend it yet for casual use. If you
-don't mind some growth pains and diving it to fix bugs and add features, Gatsby
+don't mind some growing pains and diving it to fix bugs and add features, Gatsby
 1.0 is mostly feature-complete now and can be used to build real sites.
 
 The first beta will be released in the coming weeks along with more
-documentation and a getting started tutorial. Subscribe to the
+documentation and a getting started the tutorial. Subscribe to the
 [1.0 meta issue](https://github.com/gatsbyjs/gatsby/issues/419) on GitHub to get
 updates.
 
